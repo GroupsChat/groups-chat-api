@@ -36,7 +36,7 @@ class BootstrapInputValidatorTest {
 
   @Test
   void rejectsInvalidUsernames() {
-    for (String username : new String[] { "ab", "a".repeat(33), "user name", "éuser" }) {
+    for (String username : new String[] {"ab", "a".repeat(33), "user name", "éuser"}) {
       assertThrows(
           InvalidBootstrapInputException.class,
           () -> validator.validate(new BootstrapInput(username, "p".repeat(15), "Instance")));
@@ -69,7 +69,7 @@ class BootstrapInputValidatorTest {
 
   @Test
   void rejectsMissingOrTooLongInstanceNames() {
-    for (String instanceName : new String[] { null, "", "   ", "a".repeat(101) }) {
+    for (String instanceName : new String[] {null, "", "   ", "a".repeat(101)}) {
       assertThrows(
           InvalidBootstrapInputException.class,
           () -> validator.validate(new BootstrapInput("admin", "p".repeat(15), instanceName)));

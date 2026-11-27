@@ -23,7 +23,8 @@ public class BootstrapInputValidator {
     }
 
     if (input.masterPassword() == null
-        || input.masterPassword().codePointCount(0, input.masterPassword().length()) < MIN_MASTER_PASSWORD_LENGTH) {
+        || input.masterPassword().codePointCount(0, input.masterPassword().length())
+            < MIN_MASTER_PASSWORD_LENGTH) {
       throw new InvalidBootstrapInputException(
           "Master password must contain at least 15 characters");
     }
@@ -32,7 +33,8 @@ public class BootstrapInputValidator {
       throw new InvalidBootstrapInputException("Instance name cannot be null or blank");
     }
 
-    if (input.instanceName().codePointCount(0, input.instanceName().length()) > MAX_INSTANCE_NAME_LENGTH) {
+    if (input.instanceName().codePointCount(0, input.instanceName().length())
+        > MAX_INSTANCE_NAME_LENGTH) {
       throw new InvalidBootstrapInputException("Instance name cannot exceed 100 characters");
     }
 

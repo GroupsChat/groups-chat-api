@@ -7,6 +7,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 public interface InstanceRepository extends JpaRepository<InstanceEntity, UUID> {
-  @Query(value = "SELECT * FROM instances ORDER BY created_at ASC, id ASC LIMIT 1", nativeQuery = true)
+  @Query(
+      value = "SELECT * FROM instances ORDER BY created_at ASC, id ASC LIMIT 1",
+      nativeQuery = true)
   Optional<InstanceEntity> findBootstrapInstance();
 }
